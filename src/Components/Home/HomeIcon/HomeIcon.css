@@ -1,0 +1,82 @@
+#home-icon{
+    margin-top:100px;
+    margin-right: 100px;
+    margin-left: 100px;
+}
+.box{
+    
+   
+    position: relative;
+    padding: 0 20px 25px 20px;
+    background-size: cover;
+    background-position: center;
+    color: black;
+    background-color: #ffffff;
+    text-align: center;
+    height: 100%;
+    margin-top: -100px;
+    
+    
+}
+.btnx{
+    
+}
+
+p{
+    font-size: 15px;
+}
+h3{
+    font-size: 19.29px;
+}
+
+
+
+.circle{
+    
+    width: 80px;
+    margin: auto;
+    height: 80px;
+    border-radius: 50px;
+    background-color:#DDDDDD;
+    margin-top: -30px;
+    
+    
+}
+.circle2{
+    
+    
+    margin: auto;
+  
+    border-radius: 50px;
+   
+   
+    
+    
+    
+}
+.circle3{
+    
+    width: 80px;
+    margin: auto;
+    height: 80px;
+    border-radius: 50px;
+    background: linear-gradient(57deg, #00C6A7 , #1E4D92 ); 
+    margin-top: -30px;
+    
+    
+}
+.info-iccon{
+    font-size:2em;
+    margin-top: 20px;
+}
+.personal{
+    height: 110px;
+    width: 110px;
+}
+.btnlink{
+    color:white;
+}
+.btnlink:hover{
+    color:white; 
+    text-decoration: none; 
+}

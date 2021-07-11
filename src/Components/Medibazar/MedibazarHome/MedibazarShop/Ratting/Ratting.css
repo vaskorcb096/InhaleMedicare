@@ -1,0 +1,9 @@
+.shoprating {
+    color: rgb(79, 243, 134) !important;
+    margin: 0.1rem;
+  }
+
+.rating span:last-child {
+    color: #404040; 
+}
+ 

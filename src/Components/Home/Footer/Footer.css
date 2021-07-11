@@ -1,0 +1,105 @@
+.fa-child{
+    font-size: 4em;
+}
+.footer .footer-item .footer-title {
+    
+    font-size: 24px;
+    padding: 20px 0 30px 0;
+    margin-bottom: 0;
+    
+    position: relative;
+    color: #F1C22E;
+    font-family: "Pacifico", cursive;
+}
+.copyRight{
+   
+    font-size: 15px;
+    color: white;
+    background-color: #1e272e;
+}
+li{
+    margin-top: 10px;
+    color:white
+}
+.footer-title{
+    margin-left: 50px;
+}
+.fc{
+    margin-left: 50px;  
+}
+.footer .footer-item .list li {
+    list-style: none;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+.sosmed-icon a {
+    color: #ffffff;
+    background-color: transparent;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 0 2px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    border-radius: 50%;
+}
+.sosmed-icon a.tw {
+    background-color: #16C3B0;
+}
+.sosmed-icon a.fb {
+    background-color: #FD4D40;
+}
+.sosmed-icon a.ig {
+    background-color: #FF7300;
+}
+.sosmed-icon a.in {
+    background-color: #4836ad;
+}
+
+.footer {
+  
+    width: 100%;
+   background-color: #1e272e;
+   font-family: "Pacifico", cursive;
+   
+    
+   
+}
+.list-info li {
+   
+    list-style: none;
+    font-size: 16px;
+}
+.list li{
+    list-style: none;
+   color:white;
+      font-size: 16px;
+      
+      
+}
+
+.fontSizeChanging{
+font-size:25px;
+}
+.saboxplugin-socials .fa {
+    font-family: FontAwesome;
+}
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+ul {
+    list-style-type: disc;
+}
+ul {
+    list-style: initial;
+    margin-left: 24px;
+}
+li {
+    text-align: -webkit-match-parent;
+}

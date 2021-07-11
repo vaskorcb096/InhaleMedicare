@@ -1,0 +1,50 @@
+/* Image */
+.shopcard a{
+  text-decoration: none !important;
+}
+.shopcard {
+  
+  position: relative;
+  overflow: hidden;
+  border: 0.5rem #c0c0c0 solid;
+  background-color: #f8f8f8;
+  border-radius: 0.5rem;
+  margin-bottom: 19px;
+}
+
+
+.cart-btn:hover{
+  cursor: pointer;
+}
+
+.medium {
+    border-radius: 0.5rem;
+  }
+img.large{
+width:90%;
+}
+
+.shopcard{
+  box-shadow: 1px 1px 1px 1px rgb(195, 178, 178);
+  transition:all 1s linear;
+} 
+.shopimg.medium {
+    max-width: 18rem;
+    width: 50%;
+  }
+
+  /* Card */
+  .shopcard-body {
+    padding: 0.2rem;
+  }
+
+  .shopcard-body > * {
+    margin-bottom: 0.2rem;
+  }
+  .price {
+    font-size: 1.0rem;
+  }
+  /* Rating */
+
+
+ 

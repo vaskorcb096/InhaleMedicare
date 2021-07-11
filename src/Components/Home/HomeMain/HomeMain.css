@@ -1,0 +1,36 @@
+
+
+.appoinmentButton{
+    padding:10px 45px;
+    text-align: center;
+    font-size: 14px;
+    color:#fff;
+    border: none;
+    background-image: linear-gradient(to right,#649bff,#0070fa,#649bff);
+    border-radius:10px;
+    margin-right: 10px;
+   
+}
+
+  
+.row{
+ 
+    margin:0;
+}
+.main_header_left{
+    
+  
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:flex-start;
+    color: white;
+}
+.main_header_right{
+    padding-bottom:70px;
+   
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:flex-start;
+}
