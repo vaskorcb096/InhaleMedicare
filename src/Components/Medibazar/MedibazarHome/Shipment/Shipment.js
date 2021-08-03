@@ -1,10 +1,16 @@
-import React from "react";
-import { useForm } from "react-hook-form";
-import Paper from "@material-ui/core/Paper";
-import { makeStyles } from "@material-ui/core/styles";
+
+import React, { useContext } from 'react';
+import {Stepper,StepLabel,Step} from '@material-ui/core/';
+import { CssBaseline, Container, Paper, Box } from "@material-ui/core";
+import { ThemeProvider, makeStyles } from "@material-ui/core/styles";
+import Third from './Third';
+import Second from './Second';
+import First from './First';
+import { UserContext } from '../../../../App';
+import Navbar from '../../../Home/Navbar/Navbar';
 import "./Shipment.css";
-import { useContext } from "react";
-import { UserContext } from "../../../../App";
+
+import "./Shipment.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,43 +27,69 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Shipment = () => {
-    const [loggedInUser,setLoggedInUser]=useContext(UserContext);
-  const { register, handleSubmit, watch, errors } = useForm();
-  const onSubmit = (data) => console.log(data);
- const classes = useStyles();
-  return (
-    <div className={classes.root} >
-      <Paper  elevation={3}>
-        <form className="shipForm p-5"   onSubmit={handleSubmit(onSubmit)}>
+    const [loggedInUser,setLoggedInUser,currentStep,cuStep,sStep,setStep,userData,setUserData,finalData,setFinalData]=useContext(UserContext)
+    const useStyles=makeStyles({
+       
+        root:{
+            width:"70%",
+            margin:"auto",
+           
+        }
+    })
+    const classes =useStyles();
+    function showStep(step){
+        // eslint-disable-next-line default-case
+        switch(step){
+            case 1:
+                return <First></First>
+            case 2:
+                return <Second></Second>
+            case 3:
+                return <Third></Third>
+        }
+        
+    }
+    return (
+        <div className={classes.root}>
+        <Navbar></Navbar>
 
-          <input name="name"placeholder="Your Name"defaultValue={loggedInUser.user_name}
-            ref={register({ required: true })} />
-          {/* errors will return when field validation fails  */}
-          {errors.name && <span className="error">Name is required</span>}
-
-         
-           <input name="email"placeholder="Your email"defaultValue={loggedInUser.email}
-           ref={register({ required: true })} />
-         {/* errors will return when field validation fails  */}
-         {errors.email && <span className="error">Email is required</span>}
-
-         
-          <input name="address"placeholder="Your Address"
-          ref={register({ required: true })} />
-        {/* errors will return when field validation fails  */}
-        {errors.address && <span className="error">Address is required</span>}
-
-         
-        <input name="phone"placeholder="Your Phone Number"
-          ref={register({ required: true })} />
-        {/* errors will return when field validation fails  */}
-        {errors.phone && <span className="error">Phone Number is required</span>}
-
-        <input  type="submit" />
-        </form>
-      </Paper>
+       
+            <div className="pt-5">
+            <ThemeProvider>
+      <CssBaseline />
+      <Container component={Box} p={4}>
+        <Paper component={Box} p={3}>
+           
+        <Stepper activeStep={cuStep-1} alternativeLabel>
+           <Step>
+               <StepLabel>
+                Shipment Form
+               </StepLabel>
+               </Step>
+               <Step>
+               <StepLabel>
+               Stripe Method
+               </StepLabel>
+               </Step>
+               <Step>
+               <StepLabel>
+                 Successfully Done
+               </StepLabel>
+               </Step>
+          
+        </Stepper>
+        {showStep(cuStep)}
+       
+        </Paper>
+      </Container>
+    </ThemeProvider>
     </div>
-  );
+    </div>
+
+     
+        
+
+    );
 };
 
 export default Shipment;

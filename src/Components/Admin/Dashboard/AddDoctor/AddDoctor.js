@@ -43,7 +43,7 @@ const AddDoctor = () => {
     console.log(imageData);
     
 
-    const res = await fetch("http://localhost:5000/addDoctor", {
+    const res = await fetch("https://quiet-earth-03350.herokuapp.com/addDoctor", {
       method: "POST",
       body: imageData,
     });
@@ -54,7 +54,7 @@ const AddDoctor = () => {
       swal("Sorry!", "Failed to Upload Image!", "error");
     }
     if(data && res.status===201) {
-      swal("Great", "You Added One Doctor!", "success");
+      return swal("Great", "You Added One Doctor!", "success");
     }
   };
 
@@ -212,7 +212,9 @@ const AddDoctor = () => {
                   />
                 </Form.Group>
               </Form.Row>
-              <div className="text-center mt-4">
+              
+            </div>
+            <div className="text-center mt-4">
                 <Button type="submit"
                  className="submitBtn btn-main"
                  onClick={handleSubmit}
@@ -220,7 +222,6 @@ const AddDoctor = () => {
                   Submit
                 </Button>
               </div>
-            </div>
           </Form>
         </section>
       </div>

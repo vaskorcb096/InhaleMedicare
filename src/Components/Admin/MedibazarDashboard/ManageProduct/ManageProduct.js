@@ -8,6 +8,7 @@ import "./ManageProduct.css";
 import toast, { Toaster } from "react-hot-toast";
 import swal from "sweetalert";
 import EditProduct from "../EditProduct/EditProduct";
+import ChartProduct from "./ChartProduct";
 
 const ManageProduct = () => {
   const [products, setProducts] = useState([]);
@@ -63,18 +64,25 @@ const ManageProduct = () => {
   };
 
   return (
+   
     <div className="container-fluid row ">
+     
       <div className=" vxx col-md-2 col-sm-12 col-lg-2 jx ">
         <Sidebar></Sidebar>
       </div>
       <div className="col-md-10 col-sm-12 col-lg-10 d-flex justify-content-center">
+    
+      
+      
         {editProduct._id ? (
           <EditProduct
             setEditProduct={setEditProduct}
             editProduct={editProduct}
           ></EditProduct>
         ) : (
+          
           <div className="container container-fluid">
+              <ChartProduct></ChartProduct>
             <h4>All Products</h4>
 
             <table class="contentTable sticky">
@@ -106,7 +114,7 @@ const ManageProduct = () => {
                         <img
                          style={{height:'50px',width:'50px'}}
                           className="img-fluid"
-                          src={`http://localhost:5000/${pro.image}`}
+                          src={`https://quiet-earth-03350.herokuapp.com/${pro.image}`}
                           alt={pro.name}
                         />
                       </td>

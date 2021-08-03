@@ -18,12 +18,13 @@
   opacity: 0.9;
 }
 #menuBtn {
-  width: 50px;
-  height: 100px;
   position: fixed;
   right: 65px;
-  top: 35px;
+  padding-top: 35px;
   z-index: 2;
+}
+.svgicons{
+  transform: scale(1.7);
 }
 #menuBtn2 {
   position: fixed;
@@ -142,4 +143,8 @@ input:focus {
 .giituu {
   /* position: relative;  */
   margin-left: 17%;
+}
+.xx{
+  height:800px;
+  width: 800px;
 }

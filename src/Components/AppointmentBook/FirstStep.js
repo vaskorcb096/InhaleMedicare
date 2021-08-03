@@ -12,27 +12,47 @@ import {
   KeyboardTimePicker,
   KeyboardDatePicker,
 } from '@material-ui/pickers';
+import toast from 'react-hot-toast';
 const FirstStep = () => {
-    const [loggedInUser,setLoggedInUser,currentStep,setStep,userData,setUserData,finalData,setFinalData,submitData]=useContext(UserContext);
+    const [loggedInUser,setLoggedInUser,currentStep,cuStep,sStep,setStep,userData,setUserData,finalData,setFinalData,submitData]=useContext(UserContext);
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [selectedTime, setSelectedTime] = useState(new Date());
-  
-
+    const [cnt, setCnt] = useState(0);
+    console.log("frstStep",loggedInUser);
 
   const handleDateChange = (date) => {
+    if(cnt===1) {
+      setCnt(()=>2);
+    }
+    if(cnt===0) {
+      setCnt(()=>1);
+    }
+   
     setSelectedDate(date);
     setUserData({...userData,"date":date.toDateString()});
     console.log(selectedDate.toDateString());
   };
   const handleTimeChange = (time) => {
+    if(cnt===1) {
+      setCnt(()=>2);
+    }
+    if(cnt===0) {
+      setCnt(()=>1);
+    }
+    setUserData({...userData,"time":time.toDateString()});
     setSelectedTime(time);
 
   };
   const buttonHandler=()=>{
+    if(cnt==2) {
     console.log("hi");
     //setUserData({...userData,"date":selectedDate.toDateString()});
     setUserData({...userData,"time":selectedTime.toTimeString()});
     setStep(2);
+    }
+    else {
+      toast.error("Please Picked a Date and Time");
+    }
   }
   
     return (
@@ -54,7 +74,7 @@ const FirstStep = () => {
                             id="date-picker-dialog"
                             label="Select The Date"
                             format="MM/dd/yyyy"
-                            value={selectedDate}
+                            value={selectedDate}  
                             onChange={date=>handleDateChange(date)}
                            
                             KeyboardButtonProps={{

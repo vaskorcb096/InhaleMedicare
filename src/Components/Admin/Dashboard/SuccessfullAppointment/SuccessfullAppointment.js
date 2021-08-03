@@ -1,16 +1,38 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useContext } from 'react';
 import Sidebar from '../../Sidebar/Sidebar';
 import {TableContainer,TableHead,TableBody,TableCell,TableRow,Table} from '@material-ui/core';
 import axios from "axios";
+import { UserContext } from '../../../../App';
 
 
 const SuccessfullAppointment = () => {
+  const [
+    loggedInUser,
+    setLoggedInUser,
+    currentStep,
+    setStep,
+    userData,
+    setUserData,
+    finalData,
+    setFinalData,
+    submitData,
+  ] = useContext(UserContext);
     const [successfull,setSuccessfull]=useState([]);
-    useEffect(()=>{
-        axios('/getSuccessfullAppointment').then((res)=>{
-            setSuccessfull(res.data)
-        })
-    })
+    useEffect(() => {
+      axios.get("/getSuccessfullAppointment").then((res) => {
+        console.log("sef", loggedInUser);
+        if (loggedInUser.admin === true) {
+          setSuccessfull(res.data);
+        } else {
+          const val = res.data;
+          console.log("fdhg", val);
+          var result = val.filter((da) => {
+            return da.email === loggedInUser.email;
+          });
+          setSuccessfull(result);
+        }
+      });
+    }, []);
     return (
         <div className="container-fluid row ">
         <div className=" vxx col-md-2 col-sm-12 col-lg-2 jx ">

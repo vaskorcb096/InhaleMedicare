@@ -1,24 +1,25 @@
 import React from 'react';
 import './BlogPost.css'
+import FormatQuoteIcon from '@material-ui/icons/FormatQuote';
+import { FaQuoteLeft,FaQuoteRight } from 'react-icons/fa'
 
 const BlogPost = (props) => {
-    const {title, description, author, authorImg , date} = props.blog;
+    console.log("blogpost",props);
+    const {title, description,date,user_name,image} = props.mp;
+    console.log(title);
     return (
-        <div>
-             <img className="pt-5"  src={authorImg} alt="" width="60"/>
-              
-              <h6 className="text-primary">{author}</h6>
-              <p  className="text-secondary m-0">{date}</p>
-         
-      
-      <div className=" xx text-secondary card-body">
-          <h5>{title}</h5>
-          <p className="card-text text-secondary mt-4">{description}</p>
-      </div>
 
+        <div style={{minHeight:'250px',minWidth:'250px'}} class="card Item-inside">
+        <div className="d-flex justify-content-between">
+        <img className="p-1 rounded-circle" src={image}  alt="" style={{height:'50px',width:'50px'}}/>
+        <p className="pr-2 pt-3"><strong>{date}</strong></p>
         </div>
-       
-               
+        
+    <h6 className="pl-2 text-primary">{user_name}</h6>
+      <p className="pl-2"><FaQuoteLeft className="pb-1"></FaQuoteLeft> {description} <FaQuoteRight className="pt-1"></FaQuoteRight></p>
+      
+   
+    </div>
             
       
     );

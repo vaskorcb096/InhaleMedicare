@@ -5,12 +5,12 @@ import { fab, faFacebook, faInstagram, faLinkedin, faTwitter } from '@fortawesom
 const DoctorsCard = (props) => {
     return (
         
-             <div className="col-lg-3 col-md-6 " >
-                  <div className="card">
+             <div className="col-lg-3 col-md-3 pb-5 " >
+                  <div className="card cardxx">
                   <div className="card-body">
-                      <img src={`http://localhost:3000/${props.pro.image}`} alt="" className="img-fluid rounded-circle w-50 mb-3"/>
-                      <h3 className="doctorh3">{props.pro.name}</h3>
-                      <h5>{props.pro.department}</h5>
+                      <img src={`http://localhost:3000/${props.pro.image}`} alt="" className="img-fluid rounded-circle  mb-3"/>
+                      <h3 className="doctorh3"><strong>{props.pro.name}</strong></h3>
+                      <h6>{props.pro.department}</h6>
                       <p>{props.pro.description}</p>
                       <div className="d-flex flex-row justify-content-center ">
                           <a style={{paddingRight:'1em'}}href="https://www.facebook.com/"className="fb">

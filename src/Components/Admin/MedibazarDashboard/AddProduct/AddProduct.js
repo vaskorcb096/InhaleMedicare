@@ -45,7 +45,7 @@ const AddProduct = () => {
     var categoryData = new FormData();
     categoryData.append("category", info.category);
 
-    const res = await fetch("http://localhost:5000/addcategory", {
+    const res = await fetch("https://quiet-earth-03350.herokuapp.com/addcategory", {
       method: "POST",
       body: categoryData,
     });
@@ -76,7 +76,7 @@ const AddProduct = () => {
     console.log(imageData);
     
 
-    const res = await fetch("http://localhost:5000/addProduct", {
+    const res = await fetch("https://quiet-earth-03350.herokuapp.com/addProduct", {
       method: "POST",
       body: imageData,
     });

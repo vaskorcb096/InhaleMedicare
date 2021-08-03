@@ -43,7 +43,7 @@ const HomeIcon = () => {
        
         <img style={{height:'80px'}}src={images02} alt=""/>
           <h3 className="my-2">Emergency Care</h3>
-          <p className="lead mb-3">Students practice at their own pace, first filling in gaps in their understanding and then accelerating their learning.</p>
+          <p className="lead mb-3">emergency care is needed immediately  needs to be  in a medical facility, while if it is an urgent medical issue .</p>
           <Button onClick={openModal} variant="contained" color='primary'>
             Learn More
           
@@ -54,7 +54,7 @@ const HomeIcon = () => {
         <div id="box-2" className="box  col-md-4">
         <img style={{height:'80px'}}src={images04} alt=""/>
           <h3 className="my-2">Openning Hours</h3>
-          <p className="lead mb-3">Created by experts, Child Education library of trusted practice and lessons covers math, science, and more.</p>
+          <p className="lead mb-3"> Needed immediately and patient needs to be shifted in a medical facility, while if it is an urgent medical issue .</p>
           <Button onClick={openModal1} variant="contained" color="secondary">
           Learn More
          </Button>
@@ -64,7 +64,7 @@ const HomeIcon = () => {
         <div id="box-3"className="box  col-md-4">
         <img style={{height:'80px'}}src={images03} alt=""/>
           <h3 className="my-2">24 Hours Service</h3>
-          <p className="lead mb-3">With Child Education, teachers can identify gaps in their students and meet the needs of every student.</p>
+          <p className="lead mb-3">emergency care is needed immediately and patient needs  medical facility, while if it is an urgent medical issue .</p>
          
          
          <Button  variant="contained" color='primary'>

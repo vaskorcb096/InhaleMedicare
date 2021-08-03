@@ -14,7 +14,11 @@ import { Link, Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import "./OrderReview.css";
 import { useForm } from "react-hook-form";
-import MedibazarNavbar from "../../MedibazarNavbar/MedibazarNavbar";
+import { Paper } from "@material-ui/core";
+import ReviewCart from "../MedibazarShop/Cart/ReviewCart";
+import Navbar from "../../../Home/Navbar/Navbar";
+import load2 from '../../../../images/icon/image_processing20190910-766-z53wuz.gif'
+import {  Spinner } from 'react-bootstrap';
 
 const OrderReview = () => {
   const [cart, setCart] = useState([]);
@@ -46,6 +50,7 @@ const OrderReview = () => {
       const others = cart.filter((pd) => pd._id !== ToBeAddedKey);
       newCart = [sameProduct,...others];
       setCart(newCart);
+      addToDatabaseCart(sameProduct._id, count);
     }
   };
   const increment = (productKey) => {
@@ -60,15 +65,18 @@ const OrderReview = () => {
       const others = cart.filter((pd) => pd._id !== ToBeAddedKey);
       newCart = [sameProduct,...others];
       setCart(newCart);
+      addToDatabaseCart(sameProduct._id, count);
     }
-    //  addToDatabaseCart(sameProduct._id, count);
+   
   };
   console.log(cart);
+  const [loading,setLoading]=useState(true);
 
   useEffect(() => {
     //cart
     const savedCart = getDatabaseCart();
     const productKeys = Object.keys(savedCart);
+    
     fetch("/getByproducts", {
       method: "POST",
       headers: {
@@ -84,18 +92,30 @@ const OrderReview = () => {
           return product;
         });
         setCart(cartProducts);
+        setLoading(false);
       });
   }, []);
+ 
 
   return (
-    <>
-    <MedibazarNavbar></MedibazarNavbar>
-    <div style={{paddingTop:'100px'}}className="container container-fluid cc">
+    <div className="val ">
+     {loading?(
+       <div className="d-flex justify-content-center align-item-center">
+         
+           <h6 className="text-white" style={{paddingTop:'200px'}} ><Spinner  animation="grow" variant="warning" />Loading</h6> 
+
+         
+
+       </div>
+     ):(
+       <>
+       <Navbar></Navbar>
+    <div style={{paddingTop:'100px'}}className="cll container container-fluid cc">
       
       {cart.length>0 ? (
         <div className=" row">
-          <div className="col-8">
-            <h1>Order Review</h1>
+          <div className="col-7">
+            <h1 className="pl-3 text-white">Order Review</h1>
             {cart.map((pd) => (
               <ReviewItem
                 product={pd}
@@ -107,30 +127,38 @@ const OrderReview = () => {
             ))}
           </div>
 
-          <div className="col-4">
-            <div className="checkoutButton text-center">
-              <Cart cart={cart}>
+          <div className="text-center col-5">
+           <Paper>
+           <div  className="checkoutButton text-center">
+              <ReviewCart orderReview={true}cart={cart}>
                 <Button
                   onClick={handleProccedCheckout}
                   variant="contained"
                   color="primary"
+                  
                 >
                   Procced Checkout
                 </Button>
-              </Cart>
+              </ReviewCart>
             </div>
+             
+           </Paper>
+            
           </div>
         </div>
       ) : (
         <div>
-          <h3>Your Cart is Empty</h3>
+          <h3 className="text-white">Your Cart is Empty</h3>
           <Button onClick={goToShopping} variant="contained" color="primary">
             Go to Shopping
           </Button>
         </div>
       )}
     </div>
-    </>
+       </>
+     )}
+    
+    </div>
   );
 };
 

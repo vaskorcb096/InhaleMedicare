@@ -6,9 +6,11 @@ import images02 from '../../../images/do-2.png';
 import images03 from '../../../images/do-3.png';
 import images04 from '../../../images/Abortionamico591x531.png';
 import images05 from '../../../images/World-health-dayrafiki591x531.png';
+import images09 from '../../../images/Group 140.png'
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import {Link} from 'react-router-dom';
+import { Fade } from "react-awesome-reveal";
 import './HomeMain.css'
 
 
@@ -19,6 +21,9 @@ const HomeMain = () => {
                 <div className="col-md-10 col-12 mx-auto">
                     <div className="row">
                         <div className="col-md-5 col-12 main_header_left">
+                        
+                            
+                        
                         <section class="left-sec">
                           <h3> We Are Here For Your Care</h3>
                           <h1> <span style={{color:'#264653'}}>We</span><span style={{color:'#e9c46a'}}> The </span><span style={{color:'#f4a261'}}>Best</span> <span style={{color:'#e76f51'}}>Doctors</span></h1>
@@ -36,8 +41,8 @@ const HomeMain = () => {
                         </div>
                         <div className="col-md-7 col-12 main_header_right">
                         <Carousel>  
-                             
-    <Carousel.Item>
+                        <Carousel.Item>
+      
       
     <img
     

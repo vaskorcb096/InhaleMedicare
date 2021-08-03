@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import toast from 'react-hot-toast';
+import toast from "react-hot-toast";
 import {
   TableContainer,
   TableHead,
@@ -9,32 +9,12 @@ import {
   Table,
 } from "@material-ui/core";
 import axios from "axios";
-const DisplayAppointment = () => {
-  const [appointmentResult, setAppointmentResult] = useState([]);
-  //const [loggedInUser,setLoggedInUser,currentStep,setStep,userData,setUserData,finalData,setFinalData,submitData]=useContext(UserContext);
+import { UserContext } from "../../../../App";
+const DisplayAppointment = (props) => {
+
+  const [loggedInUser,setLoggedInUser,currentStep,setStep,userData,setUserData,finalData,setFinalData,submitData]=useContext(UserContext);
   //console.log("dfsdfg....",userData);
-  useEffect(() => {
-    axios.get("/getAppointment").then((res) => {
-      setAppointmentResult(res.data);
-    });
-  }, []);
-
-  const handleStatusChange = (id, status) => {
-    let modifiedAppointment = [];
-    appointmentResult.forEach(result => {
-        if (result._id === id) {
-          result.status = status;
-        }
-        modifiedAppointment.push(result)
-    })
-    setAppointmentResult(modifiedAppointment);
-  
-
-    const modifiedStatus = { id, status }
-    axios.patch('updateAppointmentStatus', modifiedStatus)
-    .then(res => res.data && toast.success(`Set to ${status}`))
-    .catch(error => toast.error(error.message));
-  }
+  const { appointmentResult, handleStatusChange } = props;
 
   return (
     <div>
@@ -55,7 +35,7 @@ const DisplayAppointment = () => {
           </thead>
           {appointmentResult.map((data) => {
             return (
-              <tbody>
+              <tbody id={data._id}>
                 <tr>
                   <td>{data.firstname}</td>
                   <td>{data.lastname}</td>
@@ -66,9 +46,9 @@ const DisplayAppointment = () => {
                   <td> {data.preferredDoctors}</td>
                   <td>{data.purposeOfAppointment.slice(0, 15)}....</td>
                   <td>
-                    <select
+                    {loggedInUser.admin? <select
                       className={
-                        data.status === "pending"
+                        data.status === "Pending"
                           ? "btn btn-danger"
                           : data.status === "Done"
                           ? "btn btn-success"
@@ -82,7 +62,23 @@ const DisplayAppointment = () => {
                       <option className="bg-white text-muted">Pending</option>
                       <option className="bg-white text-muted">On going</option>
                       <option className="bg-white text-muted">Done</option>
-                    </select>
+                    </select>:<select
+                      className={
+                        data.status === "Pending"
+                          ? "btn btn-danger"
+                          : data.status === "Done"
+                          ? "btn btn-success"
+                          : "btn btn-info"
+                      }
+                      defaultValue={data.status}
+                      onChange={(e) =>
+                        handleStatusChange(data._id, e.target.value)
+                      }
+                    >
+                     
+                      <option className="bg-white text-muted">{data.status}</option>
+                    </select>}
+                   
                   </td>
                 </tr>
               </tbody>

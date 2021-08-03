@@ -6,22 +6,12 @@ import axios from "axios";
 import swal from "sweetalert";
 
 const ThirdStep = () => {
-  const [
-    loggedInUser,
-    setLoggedInUser,
-    currentStep,
-    setStep,
-    userData,
-    setUserData,
-    finalData,
-    setFinalData,
-    
-  ] = useContext(UserContext);
-  const submitData =async(event)=>{
+  const [loggedInUser,setLoggedInUser,currentStep,cuStep,sStep,setStep,userData,setUserData,finalData,setFinalData,submitData]=useContext(UserContext);
+  const subData =async(event)=>{
     //console.log(userData," ...userData");
-    const {time,contactNumber,date,email,firstname,lastname,preferredDoctors,purposeOfAppointment}=userData
+    const {time,contactNumber,date,email,firstname,lastname,preferredDoctors,purposeOfAppointment}=userData;
     event.preventDefault();
-    const res = await fetch("http://localhost:5000/appointment", {
+    const res = await fetch("https://quiet-earth-03350.herokuapp.com/appointment", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -43,6 +33,7 @@ const ThirdStep = () => {
     if (res.status === 400 || !data) {
       window.alert("PLz Type Valid Filed");
     } else {
+      setUserData([]);
       
       swal(
         "Thank you",
@@ -96,7 +87,7 @@ const ThirdStep = () => {
         >
           Back
         </Button>
-        <Button onClick={submitData} variant="contained" color="primary">
+        <Button onClick={subData} variant="contained" color="primary">
           Submit
         </Button>
       </div>

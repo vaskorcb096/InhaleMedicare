@@ -1,10 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;400&display=swap");
 
-* {
-  font-family: "Josefin Sans", sans-serif;
-}
-
-.main-heading {
+/*.main-heading {
   color: #5d4037;
 }
 
@@ -16,6 +11,7 @@
     0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
     0 100px 80px rgba(0, 0, 0, 0.12);
 }
+
 
 
 .img-fluidcart {
@@ -31,6 +27,113 @@
 .price-book-divide h2 {
   font-size: 20px;
   font-weight: 400;
+  color: #4db6ac;
+}
+
+.price-book-divide {
+  margin-bottom: 10px;
+}
+
+
+
+.btn-primary {
+  background-color: #4db6ac;
+  outline: none;
+  border: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #00695c;
+  outline: none;
+  border: none;
+}
+
+.btn-warning:hover {
+  background-color: black;
+  color: whitesmoke;
+  outline: none;
+}
+.quantity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+.quantity__minus,
+.quantity__plus {
+  display: block;
+  width: 32px;
+  height: 33px;
+  margin: 0;
+  background: #dee0ee;
+  text-decoration: none;
+  text-align: center;
+  line-height: 33px;
+  font-size: 20px;
+}
+.quantity__minus:hover,
+.quantity__plus:hover {
+  background: #575b71;
+  color: #fff;
+}
+.quantity__minus {
+  border-radius: 3px 0 0 3px;
+}
+.quantity__plus {
+  border-radius: 0 3px 3px 0;
+}
+.quantity__input {
+  width: 42px;
+  height: 29px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  border-top: 2px solid #dee0ee;
+  border-bottom: 2px solid #dee0ee;
+  border-left: 1px solid #dee0ee;
+  border-right: 2px solid #dee0ee;
+  background: #fff;
+  color: #8184a1;
+}
+.quantity__minus:link,
+.quantity__plus:link {
+  color: #8184a1;
+}
+.quantity__minus:visited,
+.quantity__plus:visited {
+  color: #fff;
+}
+*/
+
+.main-heading {
+  color: #5d4037;
+}
+
+.Item-inside {
+  background-color: #ffffff!important;
+ 
+  border-radius: 12px;
+  box-shadow: 0 2.8px 2.2px rgba(12, 198, 211, 0.068),
+      0 6.7px 5.3px rgba(4, 165, 240, 0.062), 0 12.5px 10px rgba(19, 192, 223, 0.06),
+      0 22.3px 17.9px rgba(17, 174, 221, 0.072), 0 41.8px 33.4px rgba(13, 143, 219, 0.123),
+      0 100px 80px rgba(4, 154, 214, 0.144);
+}
+
+
+.img-fluidcart {
+  height: 200px !important;
+}
+
+.main-title h1 {
+  font-size: 25px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.price-book-divide h2 {
+  font-size: 15px;
+  font-weight: 500;
   color: #4db6ac;
 }
 

@@ -47,7 +47,7 @@ const PendingAppointment = () => {
                       <td>
                       <select
                       className={
-                        data.status === "pending"
+                        data.status === "Pending"
                           ? "btn btn-danger":""
                         
                       }

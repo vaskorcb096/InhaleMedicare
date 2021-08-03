@@ -4,7 +4,7 @@ import React, { useContext,useState } from 'react';
 import {UserContext} from '../../App'
 
 const SecondStep = () => {
-    const [loggedInUser,setLoggedInUser,currentStep,setStep,userData,setUserData,finalData,setFinalData,submitData]=useContext(UserContext);
+    const  [loggedInUser,setLoggedInUser,currentStep,cuStep,sStep,setStep,userData,setUserData,finalData,setFinalData,submitData]=useContext(UserContext);
     const [errors,setErrors]=useState([]);
   
  

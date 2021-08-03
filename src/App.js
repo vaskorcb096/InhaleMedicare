@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import React, { createContext, useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import {
   BrowserRouter as Router,
   Switch,
@@ -35,34 +36,36 @@ import PendingAppointment from './Components/Admin/Dashboard/PendingAppointment/
 import ManageService from './Components/Admin/Dashboard/ManageService/ManageService';
 import AddDoctor from './Components/Admin/Dashboard/AddDoctor/AddDoctor';
 import ManageDoctor from './Components/Admin/Dashboard/ManageDoctor/ManageDoctor';
-
-
-
-
-
-
-
-
+import EditProfile from './Components/AboutMe/EditProfile/EditProfile';
+import OrderList from './Components/Admin/MedibazarDashboard/OrderList/OrderList';
+import MakeAdmin from './Components/Admin/MakeAdmin/MakeAdmin';
+import InhaleReview from './Components/Admin/Dashboard/InhaleReview/InhaleReview';
+import ShowContact from './Components/Admin/Dashboard/SHowContact/ShowContact';
 export const UserContext=createContext();
-
 function App() {
   const [loggedInUser,setLoggedInUser]=useState({});
   const [currentStep,setStep]=useState(1); 
+  const [cuStep,sStep]=useState(1);
   const [userData,setUserData]=useState([]);
-  const [finalData,setFinalData]=useState([]);
+  const [finalData,setFinalData]=useState({});
+ 
 
   function submitData(){
-    setFinalData(finalData=>[...finalData,userData]);
+    setFinalData("");
     setUserData("");
     setStep(1);
+    sStep(1);
+    
 
   }
   
+  
 return (
-  <UserContext.Provider value={[loggedInUser,setLoggedInUser,currentStep,setStep,userData,setUserData,finalData,setFinalData,submitData]}>
+  <UserContext.Provider value={[loggedInUser,setLoggedInUser,currentStep,cuStep,sStep,setStep,userData,setUserData,finalData,setFinalData,submitData]}>
     
 
 <Router>
+<Toaster />
       
       <Switch>
         <Route exact path="/">
@@ -116,10 +119,6 @@ return (
         <Route exact path="/successfullAppointments">
          <SuccessfullAppointment></SuccessfullAppointment>
         </Route>
-     
-      
-      
-        
         <Route exact path="/serviceSection">
         <ServiceSection></ServiceSection>
         </Route>
@@ -137,20 +136,34 @@ return (
         <Route exact path="/addProduct">
         <AddProduct></AddProduct>
         </Route>
+        <Route exact path="/orderProduct">
+       <OrderList></OrderList>
+        </Route>
+        <Route exact path="/makeAdmin">
+         <MakeAdmin></MakeAdmin>
+        </Route>
         <Route exact path="/addDoctor">
         <AddDoctor></AddDoctor>
         </Route>
         <Route exact path="/manageDoctor">
         <ManageDoctor></ManageDoctor>
         </Route>
-        
-        
+        <Route exact path="/editProfile">
+        <EditProfile></EditProfile>
+        </Route>
         <PrivateRoute exact path="/shipment">
           <Shipment></Shipment>
         </PrivateRoute>
         <Route exact path="/admin/admin_Panel">
          <Admin_Panel></Admin_Panel>
         </Route>
+        <Route exact path="/inhaleReview">
+        <InhaleReview></InhaleReview>
+        </Route>
+        <Route exact path="/showContact">
+        <ShowContact></ShowContact>
+        </Route>
+        
         <Redirect to="/"/>
       </Switch>
      

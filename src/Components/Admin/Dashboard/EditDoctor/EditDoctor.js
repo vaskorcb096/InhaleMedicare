@@ -67,7 +67,7 @@ const EditDoctor = ({ editDoctor, setEditDoctor }) => {
     imageData.append("description", info.description);
     imageData.append("department", info.department);
     console.log(imageData);
-    axios.patch(`serviceUpdate/${editDoctor._id}`, imageData).then((res) => {
+    axios.patch(`doctorUpdate/${editDoctor._id}`, imageData).then((res) => {
       if (res.data) {
         console.log("AFS");
         setEditDoctor(imageData);

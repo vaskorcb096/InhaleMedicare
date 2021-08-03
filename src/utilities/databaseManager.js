@@ -8,8 +8,6 @@ const getUser = () => {
         return newUser;
     }
 }
-
-
 const getDataKey = () => {
     const userId = getUser();
     return `medibazar/carts/${userId}`
@@ -17,10 +15,11 @@ const getDataKey = () => {
 
 // push to local storage: a temporary place for database
 const getDatabaseCart = () => {
-    const dataKey = getDataKey();
-    const data = localStorage.getItem(dataKey) || "{}";
-    return JSON.parse(data);
+  const dataKey = getDataKey();
+  const data = localStorage.getItem(dataKey) || "{}";
+  return JSON.parse(data);
 }
+  
 
 const addToDatabaseCart = (key, count) => {
     const currentCart = getDatabaseCart();

@@ -17,11 +17,11 @@ const About = () => {
                        <div className="col-md-6 pt-3 pt-lg-0 order-2 order-lg-1 d-flex justify-content-center flex-column">
                            <h1>
                                Welcome to About Page <br/>
-                               <strong className="brand-name "> Vaskor Cb</strong>
+                               <strong className="brand-name "> Inhale Care</strong>
 
                            </h1>
                            <h2 className="my-2">
-                               We are the team of talented developer
+                           We fight for the betterment of our patient's health.
                            </h2>
                            <div className="mt-3">
                                <NavLink as={Link} to="/service" className="btn-get-started">

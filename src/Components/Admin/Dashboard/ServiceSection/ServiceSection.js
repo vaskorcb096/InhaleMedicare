@@ -44,7 +44,7 @@ const ServiceSection = () => {
     console.log(imageData);
     
 
-    const res = await fetch("http://localhost:5000/serviceSection", {
+    const res = await fetch("https://quiet-earth-03350.herokuapp.com/serviceSection", {
       method: "POST",
       body: imageData,
     });
@@ -138,11 +138,11 @@ const ServiceSection = () => {
   */
 
   return (
-    <div className="container-fluid row ">
+    <div className="container-fluid row dx ">
       <div className=" vx col-md-2 col-sm-12 col-lg-2 jx ">
         <Sidebar></Sidebar>
       </div>
-      <div className="col-md-10 col-sm-12 col-lg-10 d-flex justify-content-center">
+      <div className="mx col-md-10 col-sm-12 col-lg-10 d-flex justify-content-center">
         <section className="addService">
           <Form  method="POST"  className="w-100">
             <div
@@ -155,6 +155,7 @@ const ServiceSection = () => {
                     Service Title
                   </Form.Label>
                   <Form.Control
+                
                     type="text"
                     {...register("title", { required: true })}
                     placeholder="Enter Title"
@@ -162,16 +163,18 @@ const ServiceSection = () => {
                     onBlur={handleBlur}
                   />
                 </Form.Group>
-                <Form.Group as={Col} md={5} sm={12}>
+                <Form.Group  as={Col} md={5} sm={12}>
                   <Form.Label style={{ fontWeight: "bold" }}>
                     More Details
                   </Form.Label>
                   <Form.Control
+                    
                     style={{ maxWidth: "260px" }}
                     type="text"
                     {...register("llink", { required: true })}
                     placeholder="Enter the Link"
                     name="llink"
+                    
                     onBlur={handleBlur}
                   />
                 </Form.Group>
@@ -194,10 +197,12 @@ const ServiceSection = () => {
                     Add Image
                   </Form.Label>
                   <Button
+                  style={{color:"#00005c", margin: "5%", boxShadow: "5px 5px 3px rgba(46, 46, 46, 0.62)"}}
+                   outline
                     as={"label"}
                     htmlFor="upload"
-                    variant="outline-primary"
-                    className="d-block p-2 upload-btn"
+                    
+                    className="uploadBtn d-block p-2"
                   >
                     <FontAwesomeIcon icon={faCloudUploadAlt} className="mr-2" />
                     Upload Image

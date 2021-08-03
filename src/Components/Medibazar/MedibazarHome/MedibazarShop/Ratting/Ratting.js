@@ -8,9 +8,9 @@ const Ratting = (props) => {
       <span>
         <i
           className={
-            rating >= 1
+            numReviews >= 10
               ? 'fa fa-star'
-              : rating >= 0.5
+              : numReviews >= 5
               ? 'fa fa-star-half-o'
               : 'fa fa-star-o'
           }
@@ -19,9 +19,9 @@ const Ratting = (props) => {
       <span>
         <i
           className={
-            rating >= 2
+            numReviews >= 25
               ? 'fa fa-star'
-              : rating >= 1.5
+              : numReviews >= 20
               ? 'fa fa-star-half-o'
               : 'fa fa-star-o'
           }
@@ -30,9 +30,9 @@ const Ratting = (props) => {
       <span>
         <i
           className={
-            rating >= 3
+            numReviews >= 40
               ? 'fa fa-star'
-              : rating >= 2.5
+              : numReviews >= 30
               ? 'fa fa-star-half-o'
               : 'fa fa-star-o'
           }
@@ -41,9 +41,9 @@ const Ratting = (props) => {
       <span>
         <i
           className={
-            rating >= 4
+            numReviews >= 50
               ? 'fa fa-star'
-              : rating >= 3.5
+              : numReviews >= 35
               ? 'fa fa-star-half-o'
               : 'fa fa-star-o'
           }
@@ -52,9 +52,9 @@ const Ratting = (props) => {
       <span>
         <i
           className={
-            rating >= 5
+            numReviews >= 60
               ? 'fa fa-star'
-              : rating >= 4.5
+              : numReviews >= 40
               ? 'fa fa-star-half-o'
               : 'fa fa-star-o'
           }

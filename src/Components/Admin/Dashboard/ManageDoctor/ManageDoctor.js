@@ -97,7 +97,7 @@ const ManageDoctor = () => {
                         <img
                          style={{height:'50px',width:'50px'}}
                           className="img-fluid"
-                          src={`http://localhost:5000/${pro.image}`}
+                          src={`https://quiet-earth-03350.herokuapp.com/${pro.image}`}
                           alt={pro.name}
                         />
                       </td>

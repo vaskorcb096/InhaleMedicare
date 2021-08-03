@@ -15,12 +15,12 @@ const ReviewItem = (props) => {
       <div className="row Item-inside">
         <div className="col-12 col-md-12 col-lg-4 img-div">
         
-          <img src={`http://localhost:5000/${image}`} alt="menupIc" className="img-fluid cart " />
+          <img src={`https://quiet-earth-03350.herokuapp.com/${image}`} alt="menupIc" className="img-fluid cart " />
         </div>
         <div className="col-12 col-md-12 col-lg-8">
           <div className="main-title pt-4 pb-3">
             <h1>{name}</h1>
-            <p>{description}</p>
+            <p>{description.slice(0,20)}</p>
           </div>
           <div className="menu-price-book">
             <div className="price-book-divide d-flex justify-content-between">
@@ -44,7 +44,7 @@ const ReviewItem = (props) => {
                 </a>
               </div>
               <Button
-                className="cart-btn"
+                
                 variant="contained"
                 color="primary"
                 onClick={() => props.removeProduct(_id)}

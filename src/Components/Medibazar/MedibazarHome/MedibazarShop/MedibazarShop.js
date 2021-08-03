@@ -5,7 +5,7 @@ import "./MedibazarShop.css";
 import Ratting from "./Ratting/Ratting";
 import { Link } from "react-router-dom";
 const MedibazarShop = (props) => {
-  console.log(props);
+  
 
   const {
     _id,
@@ -20,34 +20,30 @@ const MedibazarShop = (props) => {
     description,
     inCart,
   } = props.pro;
+  console.log("shop",props.pro);
   return (
-    <div>
-      <div className=" shopcard card ">
-        <Link to={`/product/${_id}`}>
-          <img
-            className="shopimg medium img-fluid"
-            src={`http://localhost:5000/${image}`}
-            alt={name}
-          />
+    <div className="mb-3 productcard">
+      <Link style={{textDecoration:'none'}}className="imgBx" to={`/product/${_id}`}>
+        <img
+          className="img-fluid"
+          src={`https://quiet-earth-03350.herokuapp.com/${image}`}
+          alt={name}
+        />
+      </Link>
+      {props.showDescription && <p>{props.pro.description}</p>}
+      <div className="contentBx">
+        <Link style={{textDecoration:'none'}} to={`/product/${_id}`}>
+          <h4>{name}</h4>
         </Link>
-
-        {props.showDescription && <p>{props.pro.description}</p>}
-        <div className="shopcard-body  card-body">
-          <Link to={`/product/${_id}`}>
-            <h4>{name}</h4>
-          </Link>
-          <Ratting rating={rating} numReviews={numReviews}></Ratting>
-          <div className="price">
-            <strong>${price}</strong>
+        <Ratting rating={rating} numReviews={numReviews}></Ratting>
+        <div className="price">
+            <strong>$<span  className="text-danger">{price}</span></strong>
           </div>
-        </div>
-
-        {props.showAddToCart && (
+          {props.showAddToCart && (
           <Button
             onClick={() => props.handleAddProduct(props.pro)}
-            className="cart-btn"
-            variant="contained"
-            color="secondary"
+            className="buy"
+            
           >
             <i className="fas fa-cart-plus">Add to Cart</i>
           </Button>

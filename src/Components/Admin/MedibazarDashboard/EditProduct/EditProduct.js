@@ -18,8 +18,9 @@ const useStyles = makeStyles((theme) => ({
     marginRight: 0,
   },
 }));
-const notify = () => toast.error("Please upload an image!");
+
 const EditProduct = ({ editProduct, setEditProduct }) => {
+  console.log("EIDT" ,editProduct);
   const [file, setFile] = useState("");
   const [info, setInfo] = useState(editProduct);
   const { register } = useForm();
@@ -63,6 +64,9 @@ const EditProduct = ({ editProduct, setEditProduct }) => {
       return toast.error("You haven't changed anything!");
 
       // return ;
+    }
+    else if(file === "") {
+      toast.error("Plz Upload An Image");
     }
     var imageData = new FormData();
     imageData.append("file", file);
@@ -223,6 +227,7 @@ const EditProduct = ({ editProduct, setEditProduct }) => {
                   id="upload"
                   type="file"
                   name="file"
+                  
                   // onClick={handleFileChange}
 
                   onChange={handleFileChange}
